@@ -1,0 +1,35 @@
+<h1>Liste des produits</h1>
+<div [hidden]="!error" class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Erreur: {{ error }}</span>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="col-md-2">Id</th>
+      <th class="col-md-2">Designation</th>
+      <th>Description</th>
+      <th>Prix</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{ product.id }}</td>
+      <td>{{ product.designation }}</td>
+      <td>{{ product.description }}</td>
+        <td>{{ product.price }}</td>
+      <td>
+        <a type="button" class="update btn btn-warning btn-sm clickable" (click)="onEditProduit(product.id)">
+          <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+      </td>
+      <td>
+        <a type="button" class="delete btn btn-danger btn-sm clickable" (click)="onDeleteProduit(product.id)">
+          <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+      </td>
+    </tr>
+
+
+  </tbody>
+</table>
